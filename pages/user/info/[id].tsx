@@ -2,9 +2,7 @@ import {GetStaticPaths, GetStaticProps, InferGetStaticPropsType} from "next";
 
 export const getStaticPaths: GetStaticPaths = async () => {
     return {
-        paths: [
-            'user/info/001'
-        ],
+        paths: [],
         fallback: true,
     }
 }
