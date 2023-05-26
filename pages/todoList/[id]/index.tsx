@@ -1,11 +1,16 @@
 import {useRouter} from 'next/router';
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 import {get, TodoEvent} from '../DB';
 
 export default function TodoDetails() {
     const router = useRouter();
     const [todoEvent, setTodoEvent] = useState<TodoEvent>();
-    get(Number(router.query.id)).then(setTodoEvent);
+
+    useEffect(()=>{
+        get(Number(router.query.id||0))
+            .then(setTodoEvent);
+    },[router])
+
 
     return (
         <>

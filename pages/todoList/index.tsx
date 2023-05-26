@@ -5,9 +5,8 @@ import css from './style.module.scss';
 
 export default function TodoListPage() {
     const [list, setList] = useState([]);
-    useEffect(() => {
-        getAll().then(setList);
-    }, []);
+
+    useEffect(() => { getAll().then(setList);}, []);
 
     function onDel(id: number, index: number) {
         del(id)
